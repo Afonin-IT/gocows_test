@@ -112,6 +112,10 @@ class Toast {
         document.addEventListener('toast:open', (e) => {
             if (e.detail.id !== this.id) this.#close()
         });
+
+        window.addEventListener('resize', () => {
+            if (this.#open) this.#close()
+        })
     }
 
     #getElementOffsets(targetEl) {
