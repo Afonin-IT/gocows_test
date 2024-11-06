@@ -1,0 +1,466 @@
+:root {
+  /* Colors */
+  --color-black: #0F0F0F;
+  --color-green: #58C25D;
+  --color-light-green: #68CB6C;
+  --shadow-color: #00000029;
+
+  /* Container */
+  --container-width: 700px;
+  --container-padding: 15px;
+
+  /* Heading */
+  --heading-color: #404040;
+  --heading-size: 28px;
+  --heading-line-height: 32px;
+  --subheading-size: 18px;
+  --subheading-line-height: 24px;
+
+  /* Text */
+  --text-color: #404040;
+  --text-size: 14px;
+  --text-line-height: 20px;
+
+  /* Button */
+  --button-color: #FFF;
+  --button-background-color: #429BF4;
+  --button-background-color-hover: #3082D4;
+  --button-background-color-active: #116ecc;
+  --button-size: 11px;
+  --button-size-large: 14px;
+
+  /* Link */
+  --link-color: #429BF4;
+
+  /* Tooltip */
+  --tooltip-size: 13px;
+
+  /* Card */
+  --card-horizontal-padding: 20px;
+  --card-vartical-padding: 13px;
+
+  /* Badge */
+  --badge-color: #5E6166;
+  --badge-backgrount-color: #F3F3F3;
+  --badge-backgrount-color-active: #DAECFE;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background: #F9FAFA;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background: var(--color-black);
+    box-shadow: 0px 2px 5px var(--shadow-color);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.green {
+  color: var(--color-green)
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--container-padding) * 2);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Heading */
+.heading {
+  font-size: var(--heading-size);
+  line-height: var(--heading-line-height);
+  color: var(--heading-color);
+}
+
+.subheading {
+  font-size: var(--subheading-size);
+  line-height: var(--subheading-line-height);
+  color: var(--subheading-color);
+}
+
+/* Text */
+.text {
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
+  color: var(--text-color)
+}
+
+/* Button */
+.button {
+  border: none;
+  font-size: var(--button-size);
+  transition: .1s;
+  border-radius: 4px;
+  padding: 7px 20px;
+  cursor: pointer;
+
+  &--default {
+    letter-spacing: 0.55px;
+    background: var(--button-background-color);
+    color: var(--button-color);
+
+    &:hover {
+      background-color: var(--button-background-color-hover);
+    }
+
+    &:active {
+      background-color: var(--button-background-color-active);
+    }
+  }
+
+  &--large {
+    padding: 15px 40px;
+    font-size: var(--button-size-large);
+  }
+
+  &--outline {
+    background: var(--button-color);
+    color: var(--button-background-color);
+    border: 1px solid var(--button-background-color);
+
+    &:hover {
+      background: var(--button-background-color);
+      color: var(--button-color);
+    }
+
+    &:active {
+      background: var(--button-background-color-hover);
+      border-color: var(--button-background-color-hover);
+      color: var(--button-color);
+    }
+  }
+
+  &--rounded {
+    border-radius: 100px;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+}
+
+/* Badge */
+.badge {
+  font-size: 13px;
+  background: var(--badge-backgrount-color);
+  color: var(--badge-color);
+  border-radius: 100px;
+  height: 26px;
+  white-space: nowrap;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  transition: .1s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--badge-backgrount-color-active);
+  }
+
+  &.active {
+    background-color: var(--badge-backgrount-color-active);
+  }
+}
+
+/* Card */
+.card {
+  padding: var(--card-vartical-padding) var(--card-horizontal-padding);
+  box-shadow: 0px 1px 6px var(--shadow-color);;
+  border-radius: 6px;
+}
+
+/* Rating */
+.rating {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  &__flag {
+    width: 20px;
+    max-height: 20px;
+    border-radius: 6px;
+  }
+
+  &__value {
+    color: #8F8F8F;
+    font-size: 12px;
+  }
+
+  &__stars {
+    display: flex;
+    column-gap: 5px;
+  }
+}
+
+/* Toast */
+.toast {
+  position: relative;
+  box-shadow: 0px 1px 6px var(--shadow-color);
+  border-radius: 6px;
+  display: inline-block;
+  transition: opacity .1s;
+
+  &:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 10.5px 11px 10.5px;
+    border-color: transparent transparent #FFFFFF transparent;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 100%;
+    filter: drop-shadow(0px -1px 6px var(--shadow-color));
+    pointer-events: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  &__inner {
+    position: relative;
+    background: #fff;
+    padding: var(--card-vartical-padding) var(--card-horizontal-padding);
+    border-radius: 6px;
+  }
+}
+
+/* Tooltip */
+.tooltip {
+  display: inline-block;
+  font-size: 13px;
+  color: #5E6166;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 1px 4px var(--shadow-color);
+  position: relative;
+  transition: opacity .1s;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 11px 10.5px 0 10.5px;
+    border-color: #FFFFFF transparent transparent transparent;
+    filter: drop-shadow(0px 2px 6px var(--shadow-color));
+    pointer-events: none;
+  }
+  
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    padding: 15px 30px;
+    border-radius: 6px;
+    column-gap: 6px;
+  }
+}
+
+/* Casino card */
+.casino-card {
+  display: grid;
+  grid-template-columns: 70px 1fr 1fr auto;
+  column-gap: 15px;
+  min-height: 94px;
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 6px;
+  }
+
+  &__labels {
+    display: flex;
+    column-gap: 5px;
+  }
+
+  &__new-label {
+    font-size: 11px;
+    padding: 2px;
+    border: 1px solid #0000001E;
+    border-radius: 4px;
+    color: var(--color-light-green);
+    font-weight: 500;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  &__link {
+    font-family: Arial, sans-serif;
+    color: var(--link-color);
+
+    &:hover {
+      color: var(--button-background-color-hover);
+    }
+
+    &:active {
+      color: var(--button-background-color-active);
+    }
+  }
+
+  &__rating {
+
+  }
+
+  &__badges {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 8px;
+  }
+
+  &__actions {
+    place-content: center;
+  }
+}
+
+/* Casino toast */
+.casino-toast {
+  width: 260px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  &__title {
+    color: var(--heading-color);
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  &__code {
+    width: 100%;
+    border: 2px dashed #878CA4;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--badge-color);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  &__table {
+    &-label {
+      font-size: var(--text-size);
+      line-height: var(--text-line-height);
+      color: #878CA4;
+      vertical-align: top;
+      white-space: nowrap;
+      padding-right: 6px;
+      width: 1%;
+    }
+
+    tr:not(:last-child) td {
+      padding-bottom: 7px;
+    }
+  }
+}
+
+.casino-reviews {
+  padding-top: 43px;
+  padding-bottom: 200px;
+
+  &__title {
+    margin-bottom: 23px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  &__load-more {
+
+  }
+}
+
+[data-toast] {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+}
